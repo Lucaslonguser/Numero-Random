@@ -175,6 +175,7 @@ function renderHistory() {
         historicoEl.appendChild(li)
     })
 
+    
     clearHistoryBtn.disabled = history.length === 0
 }
 

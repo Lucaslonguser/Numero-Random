@@ -102,7 +102,7 @@ body {
     place-items: center;
     cursor: pointer;
     transition: transform 120ms ease, background-color 200ms ease, border-color 200ms ease;
-}
+} 
 
 .logo:hover {
     transform: translateY(-1px);

@@ -14,7 +14,7 @@ O projeto foca em boas práticas de manipulação do DOM, validação de entrada
 - Tratamento de valores iguais a zero
 - Atualização do resultado em tempo real, sem recarregar a página
 
----
+--- 
 
 ## 🛠️ Tecnologias Utilizadas
 
