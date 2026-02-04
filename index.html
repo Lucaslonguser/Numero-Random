@@ -1,44 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Projeto Random</title>
+        <meta name="color-scheme" content="dark light" />
+        <meta
+            name="description"
+            content="Sorteador de números: defina um intervalo e sorteie um número aleatório."
+        />
+        <link rel="icon" type="image/png" href="dado.png" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Random</title>
-    <link rel="icon" type="image/dado" href="dado.png">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <body>
+        <a class="skip-link" href="#app">Pular para o sorteio</a>
 
-<body>
+        <main class="app" id="app">
+            <header class="header">
+                <button class="logo" id="logoBtn" type="button" aria-label="Sortear">
+                    <img src="dado.png" alt="" width="48" height="48" decoding="async" />
+                </button>
 
+                <div class="title">
+                    <h1>Sorteador de números</h1>
+                    <p class="subtitle">Defina um intervalo e sorteie um número aleatório.</p>
+                </div>
+            </header>
 
-    <main>
+            <section class="result" aria-label="Resultado">
+                <div class="resultBox">
+                    <p class="resultLabel">Número sorteado</p>
+                    <output id="resultado" class="resultValue" aria-live="polite">—</output>
+                    <p id="mensagem" class="message" role="status" aria-live="polite"></p>
+                </div>
 
-        <div class="containerTitle">
-            <img src="dado.png" alt="dado">
-            <h1>Sorteador de números</h1>
-        </div>
+                <div class="resultActions" aria-label="Ações do resultado">
+                    <button id="copyBtn" class="btn btn-secondary" type="button" disabled>
+                        Copiar
+                    </button>
+                    <button id="resetBtn" class="btn btn-ghost" type="button">Limpar</button>
+                </div>
+            </section>
 
-        <div class="numero">
-            <h3>Número sorteado:<h2></h2></h3> 
-        </div>
+            <form id="sorteioForm" class="form" autocomplete="off" novalidate>
+                <fieldset class="range" aria-label="Intervalo">
+                    <legend>Intervalo</legend>
 
+                    <label class="field">
+                        <span>De</span>
+                        <input
+                            id="numeroDe"
+                            name="de"
+                            type="number"
+                            inputmode="numeric"
+                            placeholder="Ex.: 1"
+                            required
+                        />
+                    </label>
 
-        <div class="paragrafh">
-            <p>Sorteie um número desejado</p>
-        </div>
+                    <label class="field">
+                        <span>Até</span>
+                        <input
+                            id="numeroAte"
+                            name="ate"
+                            type="number"
+                            inputmode="numeric"
+                            placeholder="Ex.: 100"
+                            required
+                        />
+                    </label>
+                </fieldset>
 
-        <div class="inputs">
-            <input id="numeroDe" class="input" placeholder="De" type="text">
-            <input id="numeroAte" class="input" placeholder="Até" type="text">
-        </div>
+                <div class="presets" aria-label="Atalhos de intervalo">
+                    <button class="chip" type="button" data-min="1" data-max="6">1–6</button>
+                    <button class="chip" type="button" data-min="1" data-max="10">1–10</button>
+                    <button class="chip" type="button" data-min="1" data-max="100">1–100</button>
+                    <button class="chip" type="button" data-min="0" data-max="999">0–999</button>
+                </div>
 
-        <div class="buttonContainer">
-            <button>Sortear</button>
-        </div>
+                <button id="sortearBtn" class="btn btn-primary" type="submit">Sortear</button>
+                <p class="hint">Dica: aperte <kbd>Enter</kbd> para sortear.</p>
+            </form>
 
-    </main>
-</body>
+            <section class="historySection" aria-label="Histórico">
+                <div class="historyHeader">
+                    <h2>Histórico</h2>
+                    <button
+                        id="clearHistoryBtn"
+                        class="btn btn-ghost btn-sm"
+                        type="button"
+                        disabled
+                    >
+                        Limpar histórico
+                    </button>
+                </div>
+                <ul
+                    id="historico"
+                    class="history"
+                    aria-label="Últimos números sorteados"
+                ></ul>
+            </section>
 
-    <script src="script.js"></script>
+            <noscript>
+                <p class="noscript">Ative o JavaScript para usar o sorteador.</p>
+            </noscript>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
 </html>
